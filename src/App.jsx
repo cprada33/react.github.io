@@ -1,14 +1,17 @@
 import './App.css'
-import ItemListContainer from './components/ItemListContainer'
-import NavBar from './components/NavBar'
+import ItemListContainer from './components/ItemListContainer/ItemListContainer'
+import NavBar from './components/Header/NavBar'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <div>
-      <NavBar/>
-      <ItemListContainer greeting = "BIENVENIDOS AL MEJOR HOSTEL DE COLOMBIA" />
-    </div>
+      <BrowserRouter>
+          <NavBar />
+        <Routes>
+          <Route path='/servicios:categoria' element = {<ItemListContainer />}/>
+        </Routes>
+      </BrowserRouter>
   )
 }
 
