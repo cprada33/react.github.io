@@ -1,8 +1,10 @@
+import ItemCard from "./ItemCard"
+
  // eslint-disable-next-line react/prop-types
- const ItemListContainer = ({ greeting }) => {
+ const ItemListContainer = () => {
   return (
     <>
-    <h1 className="titulo">{greeting}</h1>
+      <ItemCard/>
     </>
   )
 }

@@ -1,6 +1,6 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
+  max-width: auto;
+  margin: 0;
   text-align: center;
 }
 
@@ -69,7 +69,8 @@
   border-radius: 10px;
   width: auto;
   height: auto;
-  padding: 3px;
+  padding: 8px;
+  margin-right: 40px;
 }
 
 .bi {
@@ -79,4 +80,37 @@
 .contador {
   font-size: 1.2rem;
   margin: 0;
+}
+
+.footer {
+  text-align: center;
+  padding: 2.5vh 0 2.5vh 0;
+  background-color: #00BBD6;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  color: white;
+}
+i {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+}
+.correo {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-size: 1.4rem;
+}
+.text-footer {
+  font-size: 0.9rem;
+}
+
+.text-footer-dos.primero {
+  margin-top: 2.5vh;
+}
+.text-footer-dos {
+  font-size: 0.7rem;
+}
+.cantidadProductos {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }

@@ -2,13 +2,14 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import CartWidget from './CartWidget';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
   return (
     <>
       <Navbar className='NavBar'>
         <Container>
-          <Navbar.Brand href="#home">
+          <Navbar.Brand href='/'>
             <img
               alt="logo"
               src="src/assets/logoabyayala.png"
@@ -23,7 +24,7 @@ const NavBar = () => {
           <Nav.Link href="#link">Restaurante</Nav.Link>
           </div>
         </Container>
-        <CartWidget/>
+        <Link to= {'/cart'}><CartWidget/></Link>
       </Navbar>
     </>
   )
