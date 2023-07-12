@@ -1,7 +1,9 @@
 import ItemCard from "./ItemCard"
+// import { useParams } from "react-router-dom"
 
- // eslint-disable-next-line react/prop-types
  const ItemListContainer = () => {
+  // const { id } = useParams;
+
   return (
     <>
       <ItemCard/>

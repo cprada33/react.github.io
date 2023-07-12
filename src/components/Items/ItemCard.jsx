@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
 function ItemCard() {
   const [contador, setContador] = useState(0);
@@ -14,7 +15,9 @@ function ItemCard() {
           <Card>
             <Card.Img variant="top" src="holder.js/100px160" />
             <Card.Body>
+              <Link to={'/item/${id}'}>
               <Card.Title>Nombre del producto</Card.Title>
+              </Link>
               <Card.Text>
                 Descripción
               </Card.Text>
