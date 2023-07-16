@@ -9,22 +9,22 @@ import { db } from "../../firebase/firebase.config"
   const [servicios, setServicios] = useState([]);
 
   useEffect(()=> {
-  const serviciosCollection = collection(db, 'servicios');
+  const serviciosCollection = collection(db, 'Servicios');
   getDocs(serviciosCollection).then((datos)=>{
-    const res = datos.res.map((respuesta)=> respuesta.data());
-    console.log(res);
-    setServicios(res);
-  })
- });
+    const docs = datos.docs.map((doc)=> doc.data());
+    setServicios(docs);
+    console.log(docs);
+  });
+ }, []);
 
   return (
     <>
       <ItemCard/>
       <div>
         {servicios.map ((prod) => ( 
-          <div key={prod.categoria}> 
-          <h4>Cabaña: {prod.habitacion} </h4> 
-          <p>$ {prod.precio}</p> 
+          <div key={prod.id}> 
+            <h4>{prod.nombre} </h4> 
+            <p>$ {prod.precio}</p> 
           </div>
       ))}
       </div>
