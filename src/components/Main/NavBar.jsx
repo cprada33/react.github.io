@@ -1,6 +1,5 @@
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
 import CartWidget from './CartWidget';
 import { Link } from 'react-router-dom';
 
@@ -19,9 +18,9 @@ const NavBar = () => {
             />{' '}
           </Navbar.Brand>
           <div className='categorias'>
-          <Nav.Link href="#home">Habitaciones</Nav.Link>
-          <Nav.Link href="#link">Actividades extremas</Nav.Link>
-          <Nav.Link href="#link">Restaurante</Nav.Link>
+          <Link to={`/servicios/${'habitacion'}`}>Habitaciones</Link>
+          <Link to={`/servicios/${'actividad extrema'}`}>Actividades extremas</Link>
+          <Link to={`/servicios/${'restaurante'}`}>Restaurante</Link>
           </div>
         </Container>
         <Link to= {'/cart'}><CartWidget/></Link>
