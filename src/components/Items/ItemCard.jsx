@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 
 const ItemCard = ({infos}) => {
   // const [contador, setContador] = useState(0);
-
+  console.log(infos)
   return ( 
           <Card>
             <Card.Body>
@@ -23,10 +23,3 @@ const ItemCard = ({infos}) => {
 
 export default ItemCard;
 
-              {/* <div className='cantidadProductos'>
-                <button onClick={() => setContador(contador - 1)} >-</button>
-                <Card.Text>
-                  {contador}
-                </Card.Text>
-                <button onClick={() => setContador(contador + 1)} >+</button>
-              </div> */}

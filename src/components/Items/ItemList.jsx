@@ -2,13 +2,12 @@ import ItemCard from "./ItemCard";
 import { Link } from "react-router-dom";
 
  const ItemList = ({servicios}) => {
-
   return (
   <>
           <div className="itemlist">
             {servicios.map ((prod) => { 
                 return (
-                <div key={prod.id}>
+                <div key={prod.target}>
                 <Link to = {`/item/${prod.id}`}>
                   <ItemCard infos = {prod} />
                 </Link>

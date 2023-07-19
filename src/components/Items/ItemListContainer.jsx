@@ -11,11 +11,14 @@ const ItemListContainer = () => {
     useEffect(()=> {
     const serviciosCollection = collection(db, 'Servicios');
     getDocs(serviciosCollection).then((datos)=>{
-      const docs = datos.docs.map((doc)=> doc.data());
+      const docs = datos.docs.map((doc)=> ({
+        id: doc.id,
+        ...doc.data(),
+      }));
       setServicios(docs);
     });
    }, []);
-
+   
    const serviceFilter = servicios.filter((servicio) => servicio.categoria === categoria)
   return (
     <>
