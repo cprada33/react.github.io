@@ -128,13 +128,20 @@ i {
 }
 
 .itemCart {
-  display: flex;
-  width: 300px;
+  display: grid;
   justify-content: center;
   justify-self: center;
   justify-items: center;
 }
 
 .formCheckout {
-  padding-bottom: 30px;
+  padding-bottom: 20px;
+}
+
+.buttonCheckout {
+  margin: 30px 0;
+}
+
+.precioTotal {
+  padding-top: 20px;
 }

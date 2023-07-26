@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { useEffect, useState } from "react";
 import Card from 'react-bootstrap/Card';
 import { getDoc, doc } from "firebase/firestore";
@@ -7,6 +7,7 @@ import ItemCard from "./ItemCard"
 import { useContext } from "react"
 import Button from 'react-bootstrap/Button';
 import { CartContext } from "../../context/CartProvider";
+
 
 const ItemDetailContainer = () => {
     const {id} = useParams()
@@ -33,15 +34,18 @@ const ItemDetailContainer = () => {
        if (isItemFound) {
         return currItems.map((item) => {
           if (item.id === id) {
-            setPrecio(precioTotal + parseInt(item.precio))
-            return {...item, quantity: item.quantity + 1 }
+            setServicio(item.quantity = contador)
+            setPrecio(precioTotal + parseInt(item.precio) * item.quantity)
+            return {...item, quantity: item.quantity + contador }
           } else {
-            setPrecio(precioTotal + parseInt(item.precio))
+            setServicio(item.quantity = contador)
+            setPrecio(precioTotal + parseInt(item.precio) * item.quantity)
             return item;
           }
         });
        } else {
-        setPrecio(precioTotal + parseInt(servicio.precio))
+        setServicio(servicio.quantity = contador)
+        setPrecio(precioTotal + parseInt(servicio.precio) * servicio.quantity)
         return [...currItems, servicio]
        }
         
@@ -58,7 +62,7 @@ const ItemDetailContainer = () => {
         {contador}
         </Card.Text>
         <button onClick={() => setContador(contador + 1)} >+</button>
-        <Button onClick={ () => agregarCarrito()} variant="primary">Agregar al carrito</Button>{' '}
+        <Link to = {`/cart`}><Button onClick={ contador > 0 ? () => agregarCarrito() : null} variant="primary">Agregar al carrito</Button>{' '}</Link>
       </div>
     </>
   )

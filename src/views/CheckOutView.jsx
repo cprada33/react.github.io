@@ -62,7 +62,7 @@ const CheckoutView = () => {
         </Form.Group>
       </Row>
 
-      <p>{precioTotal}</p>
+      <h3>Precio total: ${precioTotal} COP</h3>
 
       <Button variant="primary" type="submit">
         Enviar orden

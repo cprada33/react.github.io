@@ -1,6 +1,16 @@
 import Card from 'react-bootstrap/Card';
 
 const ItemCard = ({infos}) => {
+  
+  const Cantidad = () => {
+    return (
+      <div>
+        {infos.quantity != undefined ? <Card.Text>
+                Cantidad: {infos.quantity}
+              </Card.Text> : null}
+      </div>
+    );
+  };
 
   return ( 
           <Card>
@@ -12,6 +22,7 @@ const ItemCard = ({infos}) => {
               <Card.Text>
                 {infos.precio}
               </Card.Text>
+              {Cantidad()}
             </Card.Body>
           </Card>
   );

@@ -7,21 +7,20 @@ import { Link } from "react-router-dom";
 const CartView = () => {
   const { cart, precioTotal } = useContext(CartContext);
  
+  const totalElements = cart.reduce((total, item) => total + item.quantity, 0);
+
   return (
     <>
-    <h1>Cart ({cart.length})</h1>
+    <h1>Cart ({totalElements})</h1>
     <div className="itemCart">
     {cart.map((item) => (
         <ItemCard key={item.id} infos={item} />
       ))}
-      {/* <div>
-      <p>Cantidad: {precioTotal}</p>
-      </div> */}
     </div>
-    <h2> Precio total: 
-      {precioTotal}
+    <h2 className="precioTotal"> Precio total: 
+      ${precioTotal} COP
     </h2>
-    <Link to = {`/CheckOut`}><button src>Hacer checkout</button></Link>
+    <Link to = {`/CheckOut`}><button className="buttonCheckout">Hacer checkout</button></Link>
     </>
   )
 }

@@ -6,6 +6,8 @@ const CartProvider = ({children}) => {
   
     const [precioTotal, setPrecio] = useState(0);
 
+    console.log(cart)
+
     return (
     <CartContext.Provider value={{ cart, setCart, precioTotal, setPrecio }}>
         {children}
