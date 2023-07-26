@@ -1,4 +1,3 @@
-
 import ItemDetailContainer from "../components/Items/ItemDetailContainer"
 
 const ItemDetailView = () => {

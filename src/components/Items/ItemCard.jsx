@@ -1,10 +1,7 @@
-// import { useState } from 'react';
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
 
 const ItemCard = ({infos}) => {
-  // const [contador, setContador] = useState(0);
-  console.log(infos)
+
   return ( 
           <Card>
             <Card.Body>
@@ -15,7 +12,6 @@ const ItemCard = ({infos}) => {
               <Card.Text>
                 {infos.precio}
               </Card.Text>
-              <Button variant="primary">Detalles del producto</Button>{' '}
             </Card.Body>
           </Card>
   );

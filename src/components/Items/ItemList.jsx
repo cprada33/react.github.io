@@ -1,5 +1,7 @@
 import ItemCard from "./ItemCard";
 import { Link } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
+
 
  const ItemList = ({servicios}) => {
   return (
@@ -10,6 +12,7 @@ import { Link } from "react-router-dom";
                 <div key={prod.target}>
                 <Link to = {`/item/${prod.id}`}>
                   <ItemCard infos = {prod} />
+                  <Button variant="primary">Detalles del producto</Button>{' '}
                 </Link>
                 </div>
         )})}
