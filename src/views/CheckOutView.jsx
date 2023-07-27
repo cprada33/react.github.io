@@ -3,11 +3,28 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import ItemCard from "../components/Items/ItemCard"
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { CartContext } from "../context/CartProvider";
+import { collection, addDoc } from 'firebase/firestore';
+import { db } from '../firebase/firebase.config';
 
 const CheckoutView = () => {
   const { cart, precioTotal } = useContext(CartContext);
+  const [ orderID, setOrderID] = useState();
+  const [ name, setName ] = useState();
+  const [ email, setEmail ] = useState();
+
+  const order = {
+    name, 
+    email,
+  };
+
+  const ordersCollection = collection(db, 'orders');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addDoc(ordersCollection, order).then(({id}) => setOrderID(id))
+  };
 
   return (
     <>
@@ -19,11 +36,11 @@ const CheckoutView = () => {
       ))}
     </div>
     <h2>Shipping Information</h2>
-    <Form className='formCheckout'>
+    <Form className='formCheckout' onSubmit={handleSubmit}>
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridEmail">
           <Form.Label>Nombre</Form.Label>
-          <Form.Control type="text" placeholder="Enter ename" />
+          <Form.Control type="text" placeholder="Enter ename" onChange={(e) => setName(e.target.value)}/>
         </Form.Group>
 
         <Form.Group as={Col} controlId="formGridPassword">
@@ -33,7 +50,7 @@ const CheckoutView = () => {
 
         <Form.Group as={Col} controlId="formGridEmail">
           <Form.Label>Correo</Form.Label>
-          <Form.Control type="text" placeholder="Correo" />
+          <Form.Control type="text" placeholder="Correo" onChange={(e) => setEmail(e.target.value)}/>
         </Form.Group>
       </Row>
 
@@ -68,7 +85,10 @@ const CheckoutView = () => {
         Enviar orden
       </Button>
     </Form>
-
+      <div>
+        <h2>Confirmación de orden de compra</h2>
+        <p>Número: {orderID}</p>
+      </div>
     </>
   )
 }
